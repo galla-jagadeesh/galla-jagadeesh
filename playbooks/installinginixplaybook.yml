@@ -1,0 +1,13 @@
+---
+- name: apache
+  host: all
+  gather-facts: yes
+  become: true
+  tasks:
+   yum:
+    name: install apache
+    state: latest
+   service:
+    name: apache
+    state: started
+  
