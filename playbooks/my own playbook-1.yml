@@ -1,0 +1,29 @@
+- name: install the web server
+  hosts: prod
+  tasks:
+     - name: installing httpd package
+       yum: 
+         name: https
+         state: present
+     - name: starting httpd package
+       service: 
+         name: httpd
+         service: started
+- name: pinging the test  server
+  hosts: all
+  tasks:
+     - name: ping the test server
+       ping: 
+- name: install httpd in test[0:20]
+  hosts: all
+  tasks:
+     - name: installing nginix in test[0:20]
+       yum:
+         name: nginix
+         state: latest
+         name: starting nginix 
+         service: started 
+         name: ping the test[3] and remove nginix
+         yum: 
+         name: removing nginix in test[3]
+         service: removed
